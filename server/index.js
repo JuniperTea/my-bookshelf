@@ -18,9 +18,9 @@ const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 const app = express();
 
 app.use(cors());
-app.use(express.static(path.join(__dirname + "/public")));
+// app.use(express.static(path.join(__dirname + "/public")));
 app.use(express.json());
-this.app.use(express.static(path.join(__dirname, "../app/build")));
+app.use(express.static(path.join(__dirname, "../app/build")));
 
 app.use("/login", usersRouter); //ladning = source page
 app.use("/users", authenticate, usersListRouter);
