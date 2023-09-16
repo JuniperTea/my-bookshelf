@@ -22,6 +22,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "../app/build")));
 
+app.use("/", usersRouter);
 app.use("/login", usersRouter); //ladning = source page
 app.use("/users", authenticate, usersListRouter);
 app.use("/books", authenticate, booksRouter);
