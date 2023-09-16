@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { Navigate, Route, Routes } from "react-router-dom";
+import Landing from "./pages/landing/Landing";
+import "./App.css";
+import Dashboard from "./pages/dashboard/Dashboard";
+import ProtectedRoute from "./shared/components/ProtectedRoute";
+import GoogleLookup from "./pages/books/GoogleLookup";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App body">
+      <Routes>
+        <Route path="/landing" element={<Landing />} />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/google-lookup"
+          element={
+            <ProtectedRoute>
+              <GoogleLookup />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="/" element={<Navigate to={"/landing"} />} />
+      </Routes>
     </div>
   );
 }
