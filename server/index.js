@@ -9,12 +9,18 @@ import recommendationsRouter from "./apis/recommendations/recommendations.js";
 import reviewsRouter from "./apis/reviews/reviews.js";
 import usersListRouter from "./apis/users/usersList.js";
 import { authenticate } from "./utilities/middlewares.js";
-dotEnv.config();
+import path from "path";
+import * as url from "url";
 
+dotEnv.config();
+const __filename = url.fileURLToPath(import.meta.url);
+const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 const app = express();
 
 app.use(cors());
+app.use(express.static(path.join(__dirname + "/public")));
 app.use(express.json());
+this.app.use(express.static(path.join(__dirname, "../app/build")));
 
 app.use("/login", usersRouter); //ladning = source page
 app.use("/users", authenticate, usersListRouter);
@@ -24,6 +30,7 @@ app.use("/current", authenticate, currentRouter);
 app.use("/recommendations", authenticate, recommendationsRouter);
 app.use("/reviews", authenticate, reviewsRouter);
 
-app.listen(process.env.PORT, () => {
-  console.log("Server started...");
+app.listen(process.env.PORT, error => {
+  if (!error) console.log("Server started...");
+  else console.log("Error ", error);
 });
