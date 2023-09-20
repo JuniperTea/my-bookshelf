@@ -1,6 +1,6 @@
-.App {
-  text-align: center;
-}
+/* .App {
+  text-align: left;
+} */
 
 .App-logo {
   height: 40vmin;
@@ -209,9 +209,11 @@
   border-radius: 16px;
   box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
 }
+.user-item-line {
+  border-bottom: rgb(27, 32, 37);
+}
 .user-item {
   display: inline;
-  border-bottom: rgb(27, 32, 37);
 
   padding: 20px;
   margin-left: 20px;

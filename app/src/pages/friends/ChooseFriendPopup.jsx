@@ -43,6 +43,7 @@ export default function ChooseFriendPopup({ setIsOpen }) {
     <>
       <div className="popupContainer">
         <div className="item-popup-body">
+          <h5>Choose 1 or more new Friends</h5>
           {loading ? (
             <Spinner />
           ) : userList.length > 0 ? (

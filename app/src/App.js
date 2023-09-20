@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import Landing from "./pages/landing/Landing";
 import "./App.css";
+import Landing from "./pages/landing/Landing";
 import Dashboard from "./pages/dashboard/Dashboard";
 import ProtectedRoute from "./shared/components/ProtectedRoute";
 import GoogleLookup from "./pages/books/GoogleLookup";

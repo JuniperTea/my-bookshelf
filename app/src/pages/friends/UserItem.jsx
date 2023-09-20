@@ -14,7 +14,7 @@ export default function UserItem({ friendID, friendName, saveFriend }) {
   };
 
   return (
-    <div>
+    <div className="user-item-line">
       <div className="user-item">{friendName}</div>
       <input
         type="checkbox"
